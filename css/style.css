@@ -1,0 +1,55 @@
+.brand {
+  font-size: 75px;
+  line-height: 100px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.form-search input.input-search {
+  height: 64px;
+  padding: 15px;
+  font-size: 40px;
+  line-height: 43px;
+  width: 383px;
+  margin-left: 10px;
+}
+
+.btn-large {
+  font-size: 25px;
+}
+
+.metta {
+  height: 40px;
+  font-size: 15px;
+}
+
+.metta li {
+  float: left;
+  padding-left: 10px;
+}
+
+.cp-container {
+  display: block;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.img_div {
+  /*position: relative;*/
+  width: 200px;
+  height: 200px;
+}
+
+.speakers_img {
+  border: 1px solid black;
+  margin-top: 16px;
+}
+
+.row_item {
+  border-top: 2px dotted orange;
+}
