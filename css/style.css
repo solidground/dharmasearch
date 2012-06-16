@@ -20,20 +20,12 @@ button {
   font-family: 'ArtifikaMedium';
 }
 
-.container {
-} 
-
 a {
   color: #215A6D;
 }
 
 a:hover {
   color: #3CA2A2;
-}
-
-.prototype-wrapper {
-  width:200px;
-  margin: 0 auto;
 }
 
 .brand {
@@ -55,7 +47,8 @@ a:hover {
 
 .form-search {
   margin-top: 2em;
-} 
+}
+
 .form-search input.input-search {
   height: 47px;
   padding: 15px;
