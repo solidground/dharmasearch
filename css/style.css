@@ -45,13 +45,16 @@ body {
   font-size: 15px;
 }
 
+.metta ul {
+  margin: 9px 0;
+}
+
 .metta li {
   float: left;
   padding-left: 10px;
 }
 
-.metta span, .talk_details span {
-  font-weight: bold;
+.metta strong, .talk_details strong {
   padding-right: 10px;
 }
 
@@ -65,6 +68,6 @@ ul {
 }
 
 .row_item {
-  border-top: 2px dotted orange;
+  border-bottom: 2px dotted orange;
   padding: 10px;
 }
