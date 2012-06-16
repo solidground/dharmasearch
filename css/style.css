@@ -1,11 +1,35 @@
-#container {
-  height: 1000px;
+@font-face {
+    font-family: 'ArtifikaMedium';
+    src: url('/fonts/artifika/Artifika-Regular-webfont.eot');
+    src: url('/fonts/artifika/Artifika-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/artifika/Artifika-Regular-webfont.woff') format('woff'),
+         url('/fonts/artifika/Artifika-Regular-webfont.ttf') format('truetype'),
+         url('/fonts/artifika/Artifika-Regular-webfont.svg#ArtifikaMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-
 body {
-  background-color:#f0f0f0;
+  background-color: #fff;
+  color: #2D2D29;
+}
+
+body,
+input,
+button {
+  font-family: 'ArtifikaMedium';
+}
+
+.container {
 } 
+
+a {
+  color: #215A6D;
+}
+
+a:hover {
+  color: #3CA2A2;
+}
 
 .prototype-wrapper {
   width:200px;
@@ -13,8 +37,10 @@ body {
 }
 
 .brand {
-  font-size: 75px;
-  line-height: 100px;
+  font-size: 100px;
+  text-align: center;
+  line-height: normal;
+  text-shadow: 3px 3px 200px #92C7A3;
 }
 
 .spin {
@@ -27,13 +53,22 @@ body {
   font-size: 20px;
 }
 
+.form-search {
+  margin-top: 2em;
+} 
 .form-search input.input-search {
-  height: 64px;
+  height: 2em;
   padding: 15px;
-  font-size: 40px;
-  line-height: 43px;
-  width: 338px;
-  margin-left: 10px;
+  font-size: 3em;
+  line-height: normal;
+  width: 85%;
+}
+
+.form-search button {
+  height: 2em;
+  font-size: 3em;
+  padding: 15px;
+  float: right;
 }
 
 .btn-large {
@@ -63,11 +98,11 @@ ul {
 }
 
 .speakers_img {
-  border: 1px solid black;
+  border-radius: 3px;
   margin-top: 10px;
 }
 
 .row_item {
-  border-bottom: 2px dotted orange;
+  border-bottom: 1px dotted #92C7A3;
   padding: 10px;
 }

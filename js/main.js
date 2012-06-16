@@ -1,4 +1,7 @@
 jQuery(document).ready(function() {
+
+  EJS.config({cache: false});
+
   /**
   * Spinner
   */
