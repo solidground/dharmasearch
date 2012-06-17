@@ -35,24 +35,36 @@ function init_audios() {
 * Make call to dharma-api.com and render the results
 */
 function search_and_render(append){
-  append = append === false ? false : true; // Default to true
+  if (append === false) {
+    $('.results').html(null);
+    page = 1;
+  }
   loading = true;
   var uri = api_uri('talks') + '&search=' + searched + '&page=' + page;
   console.log(uri);
   $.getJSON(uri, function(response) {
-      if(!!response) {
-        html = new EJS({url: 'talks.ejs'}).render(response);
-        if(append){
-          $('.results').append(html);
-        }else{
-          $('.results').html(html);
-        }
-        $('.metta').show();
-        $('.metta_total').html(response.metta.total);
-        loading = false;
+      if(response.metta > '0') {
+          var i = 0;
+          var siid = setInterval(
+            function talk() {
+              console.log(i);
+              if ( i > 11) {
+                // Do nothing
+                clearInterval(siid);
+              } else {
+                html = new EJS({url: 'talk.ejs'}).render(response.results[i++]);
+                $('.results').append(html);
+                $('.metta').show();
+                $('.metta_total').html(response.metta.total);
+              }
+            }, 100);
+          loading = false;
+      } else {
+        //
       }
-    }
-  );
+
+
+  });
 }
 
 /**
@@ -94,10 +106,11 @@ jQuery(document).ready(function() {
   * Infinite scrolling
   */
   $(window).scroll(function(){
-    if((($(window).scrollTop() + $(window).height()) + 250) >= $(document).height()){
+    if((($(window).scrollTop() + $(window).height()) + 400) >= $(document).height()){
       if(loading === false){
+        console.log('scrolled');
         page = page + 1;
-        search_and_render();
+        search_and_render(true);
       }
     }
   });
@@ -120,5 +133,15 @@ jQuery(document).ready(function() {
   
   // Focus cursor in search box on page load
   $('.input-search').focus();
+
+  // Tweet about #dharmasearch button
+  !function(d,s,id) {
+    var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)) {
+      js=d.createElement(s);
+      js.id=id;js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
 
 });

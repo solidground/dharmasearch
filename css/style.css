@@ -28,9 +28,18 @@ a:hover {
   color: #3CA2A2;
 }
 
-.brand {
-  font-size: 100px;
+header p {
   text-align: center;
+  font-size: 24px;
+}
+
+header a {
+  padding-right: 10px;
+}
+
+.brand {
+  text-align: center;
+  font-size: 100px;
   line-height: normal;
   text-shadow: 3px 3px 200px #92C7A3;
 }
@@ -46,7 +55,7 @@ a:hover {
 }
 
 .form-search {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 .form-search input.input-search {
