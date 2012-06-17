@@ -2,7 +2,7 @@
     <div class="row_item row-fluid">
         <div class="span2">
             <div class="img_div">
-                <img class="speakers_img" src=<%= results[i].speaker.picture %>>
+                <img class="speakers_img" src="<%= results[i].speaker.picture %>">
             </div>
         </div>
         <div class="span7">
@@ -18,8 +18,8 @@
             </ul>
         </div>
         <div class="span2">
-            <div id=<%= 'jquery_jplayer_' + results[i].id %> class="cp-jplayer" rel=<%= results[i].permalink %>></div>
-            <div id=<%= 'cp_container_' + results[i].id %> class="cp-container">
+            <div id="<%= 'jquery_jplayer_' + results[i].id %>" class="cp-jplayer" rel="<%= results[i].permalink %>"></div>
+            <div id="<%= 'cp_container_' + results[i].id %>" class="cp-container">
                 <div class="cp-buffer-holder">
                     <div class="cp-buffer-1"></div>
                     <div class="cp-buffer-2"></div>

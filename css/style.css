@@ -9,6 +9,8 @@
     font-style: normal;
 }
 
+/* Pallette from http://www.colourlovers.com/palette/559067/Nobody_%E2%99%A5_Sugar */
+
 body {
   background-color: #fff;
   color: #2D2D29;
@@ -62,6 +64,7 @@ a:hover {
   font-size: 3em;
   line-height: normal;
   width: 81%;
+  background-color: #fff;
 }
 
 .form-search button {
