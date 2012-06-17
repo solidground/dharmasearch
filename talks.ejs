@@ -1,8 +1,9 @@
 <% for(var i=0; i<results.length; i++) {%>
+
     <div class="row_item row-fluid">
         <div class="span2">
             <div class="img_div">
-                <img class="speakers_img" src=<%= results[i].speaker.picture %>>
+                <img class="speakers_img" src=<%= results[i].speaker.picture ? results[i].speaker.picture : 'img/nopic.jpg'  %>>
             </div>
         </div>
         <div class="span7">
@@ -11,7 +12,7 @@
                 <li><strong>Description:</strong><%= results[i].description %></li>
                 <li><strong>Speaker:</strong><%= results[i].speaker.name %></li>
                 <li><strong>Date:</strong><%= results[i].date %></li>
-                <li><strong>Duration:</strong><%= results[i].duration %></li>
+                <li><strong>Duration:</strong><%= Math.round(results[i].duration/60) %> minutes</li>
                 <li><strong>Source:</strong><%= results[i].source %></li>
                 <li><strong>License:</strong><a href=<%= results[i].license %>>Creative Commons</a></li>
                 <li><a href=<%= results[i].permalink %>><strong>Download &rarr;</strong></a></li>
