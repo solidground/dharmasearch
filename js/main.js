@@ -11,7 +11,7 @@ var loading = false;
 * Build the URI for an API request
 */
 function api_uri(method){
-  return API + method + '?api_key=' + API_KEY + '&rpp=10';
+  return API + method + '?api_key=' + API_KEY;
 }
 
 /**
@@ -43,27 +43,23 @@ function search_and_render(append){
   var uri = api_uri('talks') + '&search=' + searched + '&page=' + page;
   console.log(uri);
   $.getJSON(uri, function(response) {
-      if(response.metta > '0') {
+      if(response) {
           var i = 0;
           var siid = setInterval(
             function talk() {
-              console.log(i);
               if ( i > 11) {
                 // Do nothing
                 clearInterval(siid);
               } else {
                 html = new EJS({url: 'talk.ejs'}).render(response.results[i++]);
+                var height = $('.body').height();
                 $('.results').append(html);
-                $('.metta').show();
-                $('.metta_total').html(response.metta.total);
               }
             }, 100);
           loading = false;
-      } else {
-        //
+          $('.metta').show();
+          $('.metta_total').html(response.metta.total);
       }
-
-
   });
 }
 
@@ -89,6 +85,7 @@ $.fn.spin = function(opts) {
 $(document).ajaxStart(function(){
   // Start the spinner
   $('.spin').spin();
+  init_audios();
 });
 
 $(document).ajaxComplete(function(){
@@ -106,7 +103,7 @@ jQuery(document).ready(function() {
   * Infinite scrolling
   */
   $(window).scroll(function(){
-    if((($(window).scrollTop() + $(window).height()) + 400) >= $(document).height()){
+    if((($(window).scrollTop() + $(window).height()) + 600) >= $(document).height()){
       if(loading === false){
         console.log('scrolled');
         page = page + 1;
