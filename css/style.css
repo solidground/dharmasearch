@@ -16,17 +16,15 @@ html {
   /*-webkit-gradient(linear, left top, left bottom, #E7ECF1, #D1D9E0);*/
 }
 
+body, input, button {
+  font-family: 'ArtifikaMedium';
+}
+
 body {
   background-color: #fff;
   color: #2D2D29;
   background: url('../img/noise.png') ;
 
-}
-
-body,
-input,
-button {
-  font-family: 'ArtifikaMedium';
 }
 
 a {
@@ -37,21 +35,13 @@ a:hover {
   color: #3CA2A2;
 }
 
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+
 li {
-  line-height: 20px;
-}
-
-header {
-  height: 295px;
-}
-
-header p {
-  text-align: center;
-  font-size: 24px;
-}
-
-header a {
-  padding-right: 20px;
+  line-height: 25px;
 }
 
 .brand {
@@ -61,38 +51,40 @@ header a {
   text-shadow: 1px 1px 15px #215A6D;
 }
 
-.spin {
-  padding-top: 57px;
-  width: 5px;
-  height: 5px;
+.email {
+  text-align: center;
 }
 
-.title {
-  font-size: 20px;
+.search-form {
+  text-align: center;
 }
 
-.form-search {
-  margin-top: 1em;
-}
-
-.form-search input.input-search {
-  height: 47px;
-  padding: 15px;
+.search-form input {
+  box-shadow: 0 0 70px #999;
+  padding: 31px;
   font-size: 3em;
   line-height: normal;
-  width: 47%;
-  box-shadow: 0px 0px 70px grey;
+  width: 480px;
+  margin: 15px 5px 15px 50px;
 }
 
-.form-search button {
+.search-form button {
   height: 2em;
   font-size: 3em;
   padding: 15px;
   margin-left: 10px;
+  text-align: center;
 }
 
-.btn-large {
-  font-size: 25px;
+.highlight {
+  font-size: 20px;
+  color: orange;
+}
+
+.spin {
+  width: 5px;
+  height: 5px;
+  margin: 0 auto;
 }
 
 .metta ul {
@@ -108,34 +100,31 @@ header a {
   padding-right: 10px;
 }
 
-ul {
-  list-style: none;
-  margin-left: 0;
+.metta {
+  height: 40px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
 }
 
-.speakers_img {
-  border-radius: 3px;
-  margin-top: 10px;
-  /*border: 1px solid black;*/
-}
-
-.row_item {
-  padding: 10px;
-}
-
-
-.row_item:nth-child(2n+1) {
-  background-color: #eff7f7;
+.row-fluid:nth-child(2n+1) {
+  background-color: rgba(115, 204, 237, 0.1);
   border: 1px dotted #92C7A3;
   border-radius: 6px;
 }
 
-.metta {
-  height: 40px;
-  font-size: 15px;
+.row-fluid {
+  min-height: 230px;
+  padding: 10px;
 }
 
-.highlight {
-  font-size: 20px;
-  color: orange;
+.img {
+  margin: 20px;
+  border-radius: 3px;
+  float: left;
 }
+
+.player {
+  float: right;
+}
+

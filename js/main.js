@@ -115,20 +115,20 @@ jQuery(document).ready(function() {
   /**
   * Bind search form
   */
-  $('.form-search').submit(function(e) {
+  $('.search-form').submit(function(e) {
     e.preventDefault();
     
-    searched = $('.input-search').val();
+    searched = $('.search-query').val();
     
     // Clear the search form for next search
-    $('.input-search').val(null);
+    $('.search-query').val(null);
     
     search_and_render(false);
 
   });
   
   // Focus cursor in search box on page load
-  $('.input-search').focus();
+  $('.search-query').focus();
 
   // Tweet about #dharmasearch button
   !function(d,s,id) {
