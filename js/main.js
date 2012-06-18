@@ -19,14 +19,10 @@ function api_uri(method){
 */
 function init_audios() {
   $.each($(".cp-jplayer"), function(index, value) {
-    var el = $(value);
-    new CirclePlayer('#' + el.attr('id'),
-      {
-        m4a: el.attr("rel")
-      },
-      {
-      cssSelectorAncestor: '#' + el.next('.cp-container').attr('id')
-      }
+    new CirclePlayer(
+      '#' + $(value).attr('id'),
+      { m4a: $(value).attr("rel") },
+      { cssSelectorAncestor: '#' + $(value).next('.cp-container').attr('id') }
     );
   });
 }
@@ -42,7 +38,6 @@ function search_and_render(append){
   }
   loading = true;
   var uri = api_uri('talks') + '&search=' + searched + '&page=' + page;
-  console.log(uri);
   $.getJSON(uri, function(response) {
       if(response) {
           var i = 0;
@@ -88,6 +83,7 @@ $.fn.spin = function(opts) {
 $(document).ajaxStart(function(){
   // Start the spinner
   $('.spin').spin();
+  $('.cp-player').jPlayer('destroy');
   init_audios();
 });
 

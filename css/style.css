@@ -9,12 +9,12 @@
     font-style: normal;
 }
 
+/* Pallette from http://www.colourlovers.com/palette/559067/Nobody_%E2%99%A5_Sugar */
 html {
   letter-spacing: 0.2em;
   -webkit-transition: all 0.3s;
   /*-webkit-gradient(linear, left top, left bottom, #E7ECF1, #D1D9E0);*/
 }
-
 
 body {
   background-color: #fff;
