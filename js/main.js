@@ -38,6 +38,7 @@ function search_and_render(append){
   if (append === false) {
     $('.results').html(null);
     page = 1;
+    $("body").unhighlight();
   }
   loading = true;
   var uri = api_uri('talks') + '&search=' + searched + '&page=' + page;
@@ -59,6 +60,8 @@ function search_and_render(append){
           loading = false;
           $('.metta').show();
           $('.metta_total').html(response.metta.total);
+          $('.search_string').html(searched);
+
       }
   });
 }

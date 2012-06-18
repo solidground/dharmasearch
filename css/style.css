@@ -12,7 +12,7 @@
 html {
   letter-spacing: 0.2em;
   -webkit-transition: all 0.3s;
-  -webkit-gradient(linear, left top, left bottom, #E7ECF1, #D1D9E0);
+  /*-webkit-gradient(linear, left top, left bottom, #E7ECF1, #D1D9E0);*/
 }
 
 
@@ -41,6 +41,10 @@ li {
   line-height: 20px;
 }
 
+header {
+  height: 278px;
+}
+
 header p {
   text-align: center;
   font-size: 24px;
@@ -48,14 +52,13 @@ header p {
 
 header a {
   padding-right: 20px;
-  padding-left: 74px;
 }
 
 .brand {
   text-align: center;
   font-size: 100px;
   line-height: normal;
-  text-shadow: 1px 1px 30px #8DA4CB;
+  text-shadow: 1px 1px 15px #215A6D;
 }
 
 .spin {
@@ -78,6 +81,7 @@ header a {
   font-size: 3em;
   line-height: normal;
   width: 71%;
+  box-shadow: 0px 0px 70px grey;
 }
 
 .form-search button {
@@ -89,11 +93,6 @@ header a {
 
 .btn-large {
   font-size: 25px;
-}
-
-.metta {
-  height: 40px;
-  font-size: 15px;
 }
 
 .metta ul {
@@ -117,11 +116,13 @@ ul {
 .speakers_img {
   border-radius: 3px;
   margin-top: 10px;
+  /*border: 1px solid black;*/
 }
 
 .row_item {
   padding: 10px;
 }
+
 
 .row_item:nth-child(2n+1) {
   background-color: #eff7f7;
@@ -129,3 +130,16 @@ ul {
   border-radius: 6px;
 }
 
+.row_item:nth-child(1) {
+  margin-top: 20px;
+}
+
+.metta {
+  height: 40px;
+  font-size: 15px;
+}
+
+.highlight {
+  font-size: 20px;
+  color: orange;
+}

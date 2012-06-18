@@ -1,7 +1,7 @@
 <div class="row_item row-fluid">
     <div class="span2">
         <div class="img_div">
-            <img class="speakers_img" src=<%= speaker.picture ? speaker.picture : 'img/nopic.png'  %>>
+            <img class="speakers_img" <%= speaker.picture ? 'src="' + speaker.picture + '" style="border: 1px solid black"' : 'src="img/nopic.png"' %> >
         </div>
     </div>
     <div class="span7">
@@ -35,3 +35,5 @@
         </div>
     </div>
 </div>
+
+<% $("body").highlight($('.search_string').text()); %>
