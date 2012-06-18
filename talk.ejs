@@ -1,7 +1,7 @@
 <div class="row_item row-fluid">
     <div class="span2">
         <div class="img_div">
-            <img class="speakers_img" src=<%= speaker.picture ? speaker.picture : 'img/nopic.jpg'  %>>
+            <img class="speakers_img" src=<%= speaker.picture ? speaker.picture : 'img/nopic.png'  %>>
         </div>
     </div>
     <div class="span7">
@@ -12,7 +12,7 @@
             <li><strong>Date:</strong><%= date %></li>
             <li><strong>Duration:</strong><%= Math.round(duration/60) %> minutes</li>
             <li><strong>Source:</strong><%= source %></li>
-            <li><strong>License:</strong><a href=<%= license %>>Creative Commons</a></li>
+            <li><strong>License:</strong><a href=<%= license %> target="_blank">Creative Commons</a></li>
             <li><a href=<%= permalink %>><strong>Download &rarr;</strong></a></li>
         </ul>
     </div>

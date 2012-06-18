@@ -1,19 +1,26 @@
 @font-face {
     font-family: 'ArtifikaMedium';
-    src: url('/fonts/artifika/Artifika-Regular-webfont.eot');
-    src: url('/fonts/artifika/Artifika-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/artifika/Artifika-Regular-webfont.woff') format('woff'),
-         url('/fonts/artifika/Artifika-Regular-webfont.ttf') format('truetype'),
-         url('/fonts/artifika/Artifika-Regular-webfont.svg#ArtifikaMedium') format('svg');
+    src: url('../fonts/artifika/Artifika-Regular-webfont.eot');
+    src: url('../fonts/artifika/Artifika-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/artifika/Artifika-Regular-webfont.woff') format('woff'),
+         url('../fonts/artifika/Artifika-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/artifika/Artifika-Regular-webfont.svg#ArtifikaMedium') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 /* Pallette from http://www.colourlovers.com/palette/559067/Nobody_%E2%99%A5_Sugar */
+html {
+  letter-spacing: 0.2em;
+  -webkit-transition: all 0.3s;
+  -webkit-gradient(linear, left top, left bottom, #E7ECF1, #D1D9E0);
+}
 
 body {
   background-color: #fff;
   color: #2D2D29;
+  background: url('../img/noise.png') ;
+
 }
 
 body,
@@ -30,20 +37,25 @@ a:hover {
   color: #3CA2A2;
 }
 
+li {
+  line-height: 20px;
+}
+
 header p {
   text-align: center;
   font-size: 24px;
 }
 
 header a {
-  padding-right: 10px;
+  padding-right: 20px;
+  padding-left: 74px;
 }
 
 .brand {
   text-align: center;
   font-size: 100px;
   line-height: normal;
-  text-shadow: 3px 3px 200px #92C7A3;
+  text-shadow: 1px 1px 30px #8DA4CB;
 }
 
 .spin {
@@ -109,6 +121,12 @@ ul {
 }
 
 .row_item {
-  border-bottom: 1px dotted #92C7A3;
   padding: 10px;
 }
+
+.row_item:nth-child(2n+1) {
+  background-color: #eff7f7;
+  border: 1px dotted #92C7A3;
+  border-radius: 6px;
+}
+
