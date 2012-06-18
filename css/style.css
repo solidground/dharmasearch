@@ -42,7 +42,7 @@ li {
 }
 
 header {
-  height: 278px;
+  height: 295px;
 }
 
 header p {
@@ -80,7 +80,7 @@ header a {
   padding: 15px;
   font-size: 3em;
   line-height: normal;
-  width: 71%;
+  width: 47%;
   box-shadow: 0px 0px 70px grey;
 }
 
@@ -128,10 +128,6 @@ ul {
   background-color: #eff7f7;
   border: 1px dotted #92C7A3;
   border-radius: 6px;
-}
-
-.row_item:nth-child(1) {
-  margin-top: 20px;
 }
 
 .metta {
