@@ -2,7 +2,7 @@
     <div class="span2">
         <img class="img" <%= speaker.picture ? 'src="' + speaker.picture + '" style="border: 1px solid #2d2d29"' : 'src="img/nopic.png"' %> >
     </div>
-    <div class="span8">
+    <div class="span4">
         <ul class="talk_details">
             <li><h2><%= title %></h1></li>
             <li><strong>Description:</strong><%= description %></li>
@@ -11,27 +11,12 @@
             <li><strong>Duration:</strong><%= Math.round(duration/60) %> minutes</li>
             <li><strong>Source:</strong><%= source %></li>
             <li><strong>License:</strong><a href=<%= license %> target="_blank">Creative Commons</a></li>
-            <li><a href=<%= permalink %>><strong>Download &rarr;</strong></a></li>
+            <li><a href=<%= permalink %> ><strong>Download &rarr;</strong></a></li>
         </ul>
     </div>
-    <div class="span2">
-        <div class="player">
-            <div id=<%= 'jquery_jplayer_' + id %> class="cp-jplayer" rel=<%= permalink %>></div>
-            <div id=<%= 'cp_container_' + id %> class="cp-container">
-                <div class="cp-buffer-holder">
-                    <div class="cp-buffer-1"></div>
-                    <div class="cp-buffer-2"></div>
-                </div>
-                <div class="cp-progress-holder">
-                    <div class="cp-progress-1"></div>
-                    <div class="cp-progress-2"></div>
-                </div>
-                <div class="cp-circle-control"></div>
-                <ul class="cp-controls">
-                    <li><a href="#" class="cp-play" tabindex="1">play</a></li>
-                    <li><a href="#" class="cp-pause" style="display:none" tabindex="1">pause</a></li>
-                </ul>
-            </div>
+    <div class="span6">
+        <div class="ui360 ui360-vis">
+         <a href=<%= permalink %> >Play</a>
         </div>
     </div>
 </div>

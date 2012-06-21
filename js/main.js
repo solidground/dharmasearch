@@ -1,3 +1,5 @@
+
+
 /**
 * Set variables
 */
@@ -17,15 +19,15 @@ function api_uri(method){
 /**
 * Initialises the audio players
 */
-function init_audios() {
-  $.each($(".cp-jplayer"), function(index, value) {
-    new CirclePlayer(
-      '#' + $(value).attr('id'),
-      { m4a: $(value).attr("rel") },
-      { cssSelectorAncestor: '#' + $(value).next('.cp-container').attr('id') }
-    );
-  });
-}
+// function init_audios() {
+//   $.each($(".cp-jplayer"), function(index, value) {
+//     new CirclePlayer(
+//       '#' + $(value).attr('id'),
+//       { m4a: $(value).attr("rel") },
+//       { cssSelectorAncestor: '#' + $(value).next('.cp-container').attr('id') }
+//     );
+//   });
+// }
 
 /**
 * Make call to dharma-api.com and render the results
@@ -51,12 +53,11 @@ function search_and_render(append){
                 var height = $('.body').height();
                 $('.results').append(html);
               }
-            }, 100);
+            }, 1);
           loading = false;
           $('.metta').show();
           $('.metta_total').html(response.metta.total);
           $('.search_string').html(searched);
-
       }
   });
 }
@@ -83,13 +84,13 @@ $.fn.spin = function(opts) {
 $(document).ajaxStart(function(){
   // Start the spinner
   $('.spin').spin();
-  $('.cp-player').jPlayer('destroy');
-  init_audios();
+  // $('.cp-player').jPlayer('destroy');
+  // audio();
 });
 
 $(document).ajaxComplete(function(){
   // Initialize the new players
-  init_audios();
+  // init_audio();
   // Stop the spinner
   $('.spin').html(null);
 });
@@ -129,15 +130,5 @@ jQuery(document).ready(function() {
   
   // Focus cursor in search box on page load
   $('.search-query').focus();
-
-  // Tweet about #dharmasearch button
-  !function(d,s,id) {
-    var js,fjs=d.getElementsByTagName(s)[0];
-    if(!d.getElementById(id)) {
-      js=d.createElement(s);
-      js.id=id;js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
 
 });
