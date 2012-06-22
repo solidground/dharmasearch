@@ -1,35 +1,44 @@
 <div class="row-fluid">
-    <div class="span2 img">
+    <div class="span2 speaker_image">
         <img src= {{if speaker.picture}} ${speaker.picture} {{else}} 'img/nopic.png' {{/if}} >
     </div>
     <div class="span8 talk_details">
         <h2> ${title} </h2>
-        <ul class="talk_details">
+        <div class="talk_details">
+            
+            {{if speaker.name}} 
+                <h3 class="speaker"> 
+                    <em>
+                        by ${speaker.name} 
+                    </em>
+                </h3>
+            {{/if}}
+            {{if date}}${dateFormat(date, "fullDate")}{{/if}}
+            ({{if duration}}${parseInt(duration/60/60)} hours ${parseInt(duration/60)%60} minutes{{/if}})
+            
+            
+            <p class="description">
+            {{if description}}
+                 ${description} 
+            {{/if}}
+            </p>
 
-            <li><strong>Speaker: </strong> {{if speaker.name}} ${speaker.name} {{/if}}</li>
-
-            <li><strong>Date: </strong> {{if date}} ${dateFormat(date, "fullDate")} {{/if}}</li>
-
-            <li class="description"> {{if description}} ${description} {{/if}} </li>
-
-            <li><strong>Duration:</strong> {{if duration}} ${parseInt(duration/60/60)} hrs ${parseInt(duration/60)%60} mins {{/if}}</li>
-
-            <li><strong>Source:</strong> {{if source}} ${source} {{/if}} </li>
-
-            <li>
+            <p>
                 <strong>
                     <a href= {{if license}} ${license} {{/if}} target="_blank">License</a>
                      | 
                     <a href= {{if permalink}} ${permalink} {{/if}}>Download</a> 
+                     |
+                    <a href="${source}">${source}</a>
                      | 
                     <a href="#">Back to top</a>
                 </strong>
-            </li>
-        </ul>
+            </p>
+        </div>
     </div>
-    <div class="span2">
+    <div class="span2 player">
         <div class="ui360 ui360-vis">
-         <a href=  {{if permalink}} ${permalink} {{/if}} ></a>
+            <a href=  {{if permalink}} ${permalink} {{/if}} ></a>
         </div>
     </div>
 </div>
