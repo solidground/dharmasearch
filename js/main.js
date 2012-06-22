@@ -1,4 +1,62 @@
+function soundmanager () {
+  /**
+  * Soundmanager stuff
+  */
+  soundManager.url = 'soundmanager/swf/'; // path to directory containing SM2 SWF
 
+  soundManager.useFastPolling = true; // increased JS callback frequency, combined with useHighPerformance = true
+
+  threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
+  threeSixtyPlayer.config.showHMSTime = true;
+
+  // enable some spectrum stuffs
+
+  threeSixtyPlayer.config = {
+    useWaveformData: true,
+    useEQData: true,
+    playNext: false, // stop after one sound, or play through list until end
+    autoPlay: false, // start playing the first sound right away
+    allowMultiple: false, // let many sounds play at once (false = one at a time)
+    loadRingColor: '#ccc',// amount of sound which has loaded
+    playRingColor: '#000', // amount of sound which has played
+    backgroundRingColor: '#eee', // "default" color shown underneath everything else
+    animDuration: 500,
+    animTransition: Animator.tx.bouncy// http://www.berniecode.com/writing/animator.html
+  };
+
+  // enable this in SM2 as well, as needed
+
+  if (threeSixtyPlayer.config.useWaveformData) {
+    soundManager.flash9Options.useWaveformData = true;
+  }
+  if (threeSixtyPlayer.config.useEQData) {
+    soundManager.flash9Options.useEQData = true;
+  }
+  if (threeSixtyPlayer.config.usePeakData) {
+    soundManager.flash9Options.usePeakData = true;
+  }
+
+  if (threeSixtyPlayer.config.useWaveformData || threeSixtyPlayer.flash9Options.useEQData || threeSixtyPlayer.flash9Options.usePeakData) {
+    // even if HTML5 supports MP3, prefer flash so the visualization features can be used.
+    soundManager.preferFlash = true;
+  }
+
+  // favicon is expensive CPU-wise, but can be used.
+  if (window.location.href.match(/hifi/i)) {
+    threeSixtyPlayer.config.useFavIcon = true;
+  }
+
+  if (window.location.href.match(/html5/i)) {
+    // for testing IE 9, etc.
+    soundManager.useHTML5Audio = true;
+  }
+}
+
+function init_audio () {
+  threeSixtyPlayer = new ThreeSixtyPlayer();
+  // hook into SM2 init
+  soundManager.onready(threeSixtyPlayer.init);
+}
 
 /**
 * Set variables
@@ -17,49 +75,32 @@ function api_uri(method){
 }
 
 /**
-* Initialises the audio players
-*/
-// function init_audios() {
-//   $.each($(".cp-jplayer"), function(index, value) {
-//     new CirclePlayer(
-//       '#' + $(value).attr('id'),
-//       { m4a: $(value).attr("rel") },
-//       { cssSelectorAncestor: '#' + $(value).next('.cp-container').attr('id') }
-//     );
-//   });
-// }
-
-/**
 * Make call to dharma-api.com and render the results
 */
 function search_and_render(append){
-  if (append === false) {
-    $('.results').html(null);
+  if(append === false) {
+    $(".results").html(null);
     page = 1;
     $("body").unhighlight();
   }
   loading = true;
-  var uri = api_uri('talks') + '&search=' + searched + '&page=' + page;
+  var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
+  console.log(uri);
   $.getJSON(uri, function(response) {
-      if(response) {
-          var i = 0;
-          var siid = setInterval(
-            function talk() {
-              if ( i > 11) {
-                // Do nothing
-                clearInterval(siid);
-              } else {
-                html = new EJS({url: 'talk.ejs'}).render(response.results[i++]);
-                var height = $('.body').height();
-                $('.results').append(html);
-              }
-            }, 1);
-          loading = false;
-          $('.metta').show();
-          $('.metta_total').html(response.metta.total);
-          $('.search_string').html(searched);
-      }
+    if(response) {
+      var results = response.results;
+      $.get('talk.html', function(template) {
+      $.tmpl(template, results).appendTo('.results');
+      });
+      loading = false;
+      $('.metta').show();
+      $('.metta_total').html(response.metta.total);
+    }
   });
+  console.log(searched);
+  setTimeout(function function_name (argument) {
+    $(".results, .metta_total").highlight(searched);
+  }, 2000);
 }
 
 /**
@@ -84,20 +125,18 @@ $.fn.spin = function(opts) {
 $(document).ajaxStart(function(){
   // Start the spinner
   $('.spin').spin();
-  // $('.cp-player').jPlayer('destroy');
-  // audio();
 });
 
 $(document).ajaxComplete(function(){
-  // Initialize the new players
-  // init_audio();
+  init_audio();
   // Stop the spinner
   $('.spin').html(null);
 });
 
 jQuery(document).ready(function() {
-
-  EJS.config({cache: false}); // Development only
+  searched = $('.search-query').val();
+  search_and_render();
+  soundmanager();
  
   /**
   * Infinite scrolling
@@ -105,26 +144,23 @@ jQuery(document).ready(function() {
   $(window).scroll(function(){
     if((($(window).scrollTop() + $(window).height()) + 600) >= $(document).height()){
       if(loading === false){
-        console.log('scrolled');
         page = page + 1;
         search_and_render(true);
       }
     }
   });
- 
-  
+   
   /**
   * Bind search form
   */
   $('.search-form').submit(function(e) {
     e.preventDefault();
-    
     searched = $('.search-query').val();
-    
+
     // Clear the search form for next search
     $('.search-query').val(null);
-    
     search_and_render(false);
+    $('.search_string').html('with ' + '"' + searched + '"');
 
   });
   
