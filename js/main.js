@@ -1,3 +1,5 @@
+var a = 'poo';
+
 var _gaq = [];
 _gaq.push(['_setAccount', 'UA-31671486-5'], ['_trackPageview']);
 (function() {
