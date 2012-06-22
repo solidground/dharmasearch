@@ -1,3 +1,7 @@
+$('.about').click(function () {
+  $('#about').modal();
+});
+
 function soundmanager () {
   /**
   * Soundmanager stuff
@@ -11,18 +15,8 @@ function soundmanager () {
 
   // enable some spectrum stuffs
 
-  threeSixtyPlayer.config = {
-    useWaveformData: true,
-    useEQData: true,
-    playNext: false, // stop after one sound, or play through list until end
-    autoPlay: false, // start playing the first sound right away
-    allowMultiple: false, // let many sounds play at once (false = one at a time)
-    loadRingColor: '#ccc',// amount of sound which has loaded
-    playRingColor: '#000', // amount of sound which has played
-    backgroundRingColor: '#eee', // "default" color shown underneath everything else
-    animDuration: 500,
-    animTransition: Animator.tx.bouncy// http://www.berniecode.com/writing/animator.html
-  };
+  threeSixtyPlayer.config.useWaveformData = true;
+  threeSixtyPlayer.config.useEQData = true;
 
   // enable this in SM2 as well, as needed
 
@@ -50,12 +44,14 @@ function soundmanager () {
     // for testing IE 9, etc.
     soundManager.useHTML5Audio = true;
   }
+
 }
 
 function init_audio () {
-  threeSixtyPlayer = new ThreeSixtyPlayer();
-  // hook into SM2 init
-  soundManager.onready(threeSixtyPlayer.init);
+  soundManager.stopAll();
+  soundManager.flashLoadTimeout = 0;
+  soundManager.onerror = {};
+  soundManager.reboot();
 }
 
 /**
@@ -89,15 +85,15 @@ function search_and_render(append){
   $.getJSON(uri, function(response) {
     if(response) {
       var results = response.results;
+      // Ajax template and render
       $.get('talk.html', function(template) {
-      $.tmpl(template, results).appendTo('.results');
+        $.tmpl(template, results).appendTo('.results');
       });
       loading = false;
-      $('.metta').show();
       $('.metta_total').html(response.metta.total);
     }
   });
-  console.log(searched);
+  // Highlight search phrase
   setTimeout(function function_name (argument) {
     $(".results, .metta_total").highlight(searched);
   }, 2000);
@@ -134,9 +130,12 @@ $(document).ajaxComplete(function(){
 });
 
 jQuery(document).ready(function() {
+ 
+  soundmanager();
+
+  // Displays results on homepage
   searched = $('.search-query').val();
   search_and_render();
-  soundmanager();
  
   /**
   * Infinite scrolling

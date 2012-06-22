@@ -60,13 +60,13 @@ li {
   text-align: center;
 }
 
-.search-form input {
+input[type="text"]:focus, .search-form input {
   box-shadow: 0 0 70px #999;
   padding: 25px;
   font-size: 3em;
   line-height: 50px;
-  width: 41%;
-  margin: 15px 5px 15px 50px;
+  width: 26%;
+  margin: 15px 5px 15px 48px;
 }
 
 .search-form button {
@@ -77,8 +77,19 @@ li {
   text-align: center;
 }
 
+.modal {
+  width: 337px;
+}
+
+.modal-body a:nth-child(2n) {
+  padding-left: 61px;
+}
+
+#about img {
+  width: 150px;
+}
+
 .highlight {
-  font-size: 20px;
   background-color: rgba(136, 193, 236, 0.5);
 }
 
@@ -119,4 +130,8 @@ li {
 .player {
   float: right;
   text-align: center;
+}
+
+img {
+  margin-top: 10px;
 }
