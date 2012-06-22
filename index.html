@@ -12,19 +12,17 @@
     <meta name="description" content="Dharmasearch is a user interface for Dharma-api, the source of all the dharma talks and teachers on the web.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/libs/modernizr-2.5.3.min.js"></script>
-    <!-- Bootstap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-    <!-- soundManager.useFlashBlock: related CSS -->
     <link rel="stylesheet" type="text/css" href="soundmanager/flashblock/flashblock.css" />
-    <!-- required -->
     <link rel="stylesheet" type="text/css" href="soundmanager/360-player/360player.css" />
     <link rel="stylesheet" type="text/css" href="soundmanager/360-player/360player-visualization.css" />
-    <!-- My styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
+    <div class="container">
+
       <header>
         <h1 class="brand">Dharmasearch</h1>
         <h1 class="email"><a href="mailto:hello@dharmasearch.com" target="_blank">hello@dharmasearch.com</a> | <a class="about" href="#about" >About</a></h1>
@@ -39,8 +37,7 @@
           <span class="search_string"></span>
         </div>      
       </header>
-    <div class="container">
-      <!-- The about modal -->
+
       <div class="modal hide fade" id="about">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">×</button>
@@ -54,46 +51,24 @@
           <a href="#" class="btn" data-dismiss="modal">Close</a>
         </div>
       </div>
+
       <div class="spin"></div> 
       <div class="results"></div>
+
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-    <!-- Soundmanager stuff -->
-    <!-- special IE-only canvas fix -->
-    <!--[if IE]><script type="text/javascript" src="script/excanvas.js"></script><![endif]-->
-    <!-- Apache-licensed animation library -->
-    <script type="text/javascript" src="soundmanager/360-player/script/berniecode-animator.js"></script>
-    <!-- the core stuff -->
-    <script type="text/javascript" src="soundmanager/script/soundmanager2.js"></script>
-    <script type="text/javascript" src="soundmanager/360-player/script/360player.js"></script>
-    <!-- Infinite scrolling -->
-    <script type="text/javascript" src="js/libs/jquery.infinitescroll.min.js"></script>
-    <!-- Highlight searched words -->
-    <script type="text/javascript" src="js/libs/jquery.highlight.js"></script>
-    <!-- Loading spinner -->
-    <script type="text/javascript" src="js/libs/spin.min.js"></script>
-    <!-- EJS Templating -->
-    <script type="text/javascript" src="js/libs/jquery.tmpl.min.js"></script>
-    <!-- Date plugin -->
-    <script type="text/javascript" src="js/libs/date.format.js"></script>
-    <!-- Bootstrap -->
-    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/libs/bootstrap-modal.js"></script>
-    <script type="text/javascript" src="js/libs/bootstrap-transition.js"></script>
-    <!-- Main javascripts -->
-    <script type="text/javascript" src="js/main.js"></script>
-    <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-         mathiasbynens.be/notes/async-analytics-snippet -->
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-31671486-5']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    <script src="js/libs/jquery-1.7.2.min.js"></script>
+    <!--[if IE]><script src="soundmanager/script/excanvas.js"></script><![endif]-->
+    <script src="soundmanager/360-player/script/berniecode-animator.js"></script>
+    <script src="soundmanager/script/soundmanager2.js"></script>
+    <script src="soundmanager/360-player/script/360player.js"></script>
+    <script src="js/libs/jquery.infinitescroll.min.js"></script>
+    <script src="js/libs/jquery.highlight.js"></script>
+    <script src="js/libs/spin.min.js"></script>
+    <script src="js/libs/jquery.tmpl.min.js"></script>
+    <script src="js/libs/date.format.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/libs/bootstrap-modal.js"></script>
+    <script src="js/libs/bootstrap-transition.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
