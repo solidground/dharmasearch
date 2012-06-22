@@ -13,7 +13,6 @@
 html {
   letter-spacing: 0.2em;
   -webkit-transition: all 0.3s;
-  /*-webkit-gradient(linear, left top, left bottom, #E7ECF1, #D1D9E0);*/
 }
 
 body, input, button {
@@ -42,6 +41,12 @@ a:hover {
 .img {
   width: 256px;
   height: 200px;
+}
+
+img {
+  margin-top: 6px;
+  border-radius: 18px;
+  /*border: 9px solid rgba(36, 91, 110, 0.2);*/
 }
 
 div.span7.talk_details, .talk_details {
@@ -86,16 +91,17 @@ input[type="text"]:focus, .search-form input {
   text-align: center;
 }
 
-.modal {
-  width: 337px;
+.modal-body {
+  font-size: 17px;
+  line-height: 27px;
 }
 
-.modal-body a:nth-child(2n) {
-  padding-left: 61px;
+.modal-body ul {
+  list-style-type: none;
 }
 
-#about img {
-  width: 150px;
+.modal-body a {
+  font-size: 15px;
 }
 
 .highlight {
@@ -144,8 +150,4 @@ h2 span {
 .player {
   float: right;
   text-align: center;
-}
-
-img {
-  margin-top: 10px;
 }
