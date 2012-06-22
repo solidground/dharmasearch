@@ -57,7 +57,7 @@ li {
   text-align: center;
   font-size: 65px;
   line-height: normal;
-  text-shadow: 1px 1px 15px #215A6D;
+  text-shadow: 0 0 70px #999;
 }
 
 .email {
@@ -71,7 +71,7 @@ li {
 
 input[type="text"]:focus, .search-form input {
   box-shadow: 0 0 70px #999;
-  padding: 25px;
+  padding: 28px;
   font-size: 3em;
   line-height: 50px;
   width: 26%;
