@@ -27,6 +27,10 @@ body {
 
 }
 
+.row-fluid {
+  border-bottom: 1px dotted orange;
+}
+
 a {
   color: #215A6D;
 }
@@ -35,7 +39,12 @@ a:hover {
   color: #3CA2A2;
 }
 
-ul {
+.img {
+  width: 256px;
+  height: 200px;
+}
+
+div.span7.talk_details, .talk_details {
   list-style: none;
   margin-left: 0;
 }
@@ -119,7 +128,12 @@ input[type="text"]:focus, .search-form input {
   text-align: center;
 }
 
-.row-fluid:nth-child(2n+1) {
+h2 span {
+  font-size: 13px;
+}
+
+.description {
+  letter-spacing: 0.3em;
 }
 
 .row-fluid {

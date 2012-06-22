@@ -1,23 +1,20 @@
 <div class="row-fluid">
-    <div class="span2">
+    <div class="span2 img">
         <img src=${speaker.picture} >
     </div>
-     <div class=" span7">
+    <div class="span8 talk_details">
+        <h2> ${title} </h2>
         <ul class="talk_details">
-            <li><h2> ${title} </h2></li>
-            <li><strong>Description:</strong> ${description} </li>
-            <li><strong>Speaker:</strong> ${speaker.name} </li>
-            <li><strong>Date:</strong> ${date } </li>
-            <li><strong>Duration:</strong> ${duration} </li>
-            <li><strong>Source:</strong> ${source} </li>
-            <li><strong>License:</strong><a href= ${license} target="_blank">Creative Commons</a></li>
-            <li><a href= ${permalink} ><strong>Download &rarr;</strong></a></li>
-            <li><a href="#"><strong>Back to top &uarr;</strong></a></li>
+            <li><strong>Speaker: </strong> {{if speaker.name}} ${speaker.name} {{/if}} <strong>Date: </strong> {{if date}} ${dateFormat(date, "fullDate")} {{/if}}</li>
+            <li class="description"> {{if description}} ${description} {{/if}} </li>
+            <li><strong>Duration:</strong> {{if duration}} ${parseInt(duration/60/60)} hrs ${parseInt(duration/60)%60} mins {{/if}}</li>
+            <li><strong>Source:</strong> {{if source}} ${source} {{/if}} </li>
+            <li><strong><a href= {{if license}} ${license} {{/if}} target="_blank">License</a> | <a href= {{if permalink}} ${permalink} {{/if}}>Download</a> | <a href="#">Back to top</a></strong></li>
         </ul>
     </div>
     <div class="span2">
         <div class="ui360 ui360-vis">
-         <a href= ${permalink} >Play</a>
+         <a href=  {{if permalink}} ${permalink} {{/if}} ></a>
         </div>
     </div>
 </div>
