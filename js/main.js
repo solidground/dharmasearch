@@ -81,7 +81,6 @@ function search_and_render(append){
   }
   loading = true;
   var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
-  console.log(uri);
   $.getJSON(uri, function(response) {
     if(response) {
       var results = response.results;
