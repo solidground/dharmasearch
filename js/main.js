@@ -82,6 +82,7 @@ function search_and_render(append){
   }
   loading = true;
   var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
+
   $.ajax({
     url: uri,
     dataType: 'jsonp',
@@ -104,6 +105,7 @@ function search_and_render(append){
       // Stop the spinner
       $('.spin').html(null);
     }
+    
   });
   // Highlight search phrase
   setTimeout(function function_name (argument) {
