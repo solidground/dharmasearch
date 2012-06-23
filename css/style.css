@@ -113,13 +113,20 @@ li {
   text-align: center;
 }
 
-input[type="text"]:focus, .search-form input {
+input[type="text"], .search-form input {
   box-shadow: 0 0 70px #999;
   padding: 28px;
   font-size: 2em;
-  line-height: 35px;
+  line-height: normal;
   width: 41%;
   margin: 15px 5px 15px 0;
+}
+
+.gt_ie8 input[type="text"], .search-form input {
+  box-shadow: 0 0 70px #999;
+  padding: 22px;
+  line-height: 25px;
+  height: 25px;
 }
 
 .search-form button {
@@ -132,7 +139,7 @@ input[type="text"]:focus, .search-form input {
 
 .modal-body {
   font-size: 17px;
-  line-height: 27px;
+  line-height: normal;
   max-height: 420px;
 }
 
