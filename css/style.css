@@ -107,6 +107,11 @@ li {
 .email {
   text-align: center;
   font-size: 17px;
+  padding-left: 60px;
+}
+
+.twitter-hashtag-button {
+  margin-bottom: -3px;
 }
 
 .search-form {
@@ -125,7 +130,7 @@ input[type="text"], .search-form input {
 .gt_ie8 input[type="text"], .search-form input {
   box-shadow: 0 0 70px #999;
   padding: 22px;
-  line-height: 25px;
+  line-height: 32px;
   height: 25px;
 }
 
@@ -140,7 +145,7 @@ input[type="text"], .search-form input {
 .modal-body {
   font-size: 17px;
   line-height: normal;
-  max-height: 420px;
+  max-height: 433px;
 }
 
 .modal-body ul {
