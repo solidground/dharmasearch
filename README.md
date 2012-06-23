@@ -7,6 +7,6 @@ dharmasearch is built on dharma-api (The Dharma API aims to be a single canonica
 
 dharmasearch is still is construction so not fully functional yet
 
-Please fork me if you have any ideas
+Please fork me if you have any ideas.
 
 Jay ;-)

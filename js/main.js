@@ -1,3 +1,4 @@
+
 $('.about').click(function () {
   $('#about').modal();
 });
@@ -81,16 +82,30 @@ function search_and_render(append){
   }
   loading = true;
   var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
-  $.getJSON(uri, function(response) {
-    if(response) {
-      var results = response.results;
-      // Ajax template and render
-      $.get('talk.html', function(template) {
-        $.tmpl(template, results).appendTo('.results');
-      });
-      loading = false;
-      $('.metta_total').html(response.metta.total);
+
+  $.ajax({
+    url: uri,
+    dataType: 'jsonp',
+    beforeSend: function(){
+      $('.spin').spin();
+    },
+    success: function(response) {
+      if(response) {
+        var results = response.results;
+        // Ajax template and render
+        $.get('talk.html', function(template) {
+          $.tmpl(template, results).appendTo('.results');
+        });
+        loading = false;
+        $('.metta_total').html(response.metta.total);
+      }
+    },
+    complete: function(){
+      init_audio();
+      // Stop the spinner
+      $('.spin').html(null);
     }
+    
   });
   // Highlight search phrase
   setTimeout(function function_name (argument) {
@@ -116,17 +131,6 @@ $.fn.spin = function(opts) {
   });
   return this;
 };
-
-$(document).ajaxStart(function(){
-  // Start the spinner
-  $('.spin').spin();
-});
-
-$(document).ajaxComplete(function(){
-  init_audio();
-  // Stop the spinner
-  $('.spin').html(null);
-});
 
 jQuery(document).ready(function() {
  
