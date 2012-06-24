@@ -1,3 +1,41 @@
+// My first propper funtion I made all by myself!!
+function format_date (date) {
+  var year = date[0] + date[1] + date[2] + date[3];
+  var month = date[5] + date[6];
+  var day = date[8] + date[9];
+  if (day[0] == '0') day = day[1];
+  if (day == '01' || day == '21' || day == '31') day += 'st';
+  else if (day == '02' || day == '22') day += 'nd';
+  else if (day == '03' || day == '23') day += 'rd';
+  else day += 'th';
+  if (month == '01') month = 'January';
+  if (month == '02') month = 'February';
+  if (month == '03') month = 'March';
+  if (month == '04') month = 'April';
+  if (month == '05') month = 'May';
+  if (month == '06') month = 'June';
+  if (month == '07') month = 'July';
+  if (month == '08') month = 'August';
+  if (month == '09') month = 'September';
+  if (month == '10') month = 'October';
+  if (month == '11') month = 'November';
+  if (month == '12') month = 'December';
+  return day + ', ' + month + ', ' + year; 
+}
+// Check for empties and format nicely.
+// function check_and_format (i) {
+//   results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
+//   results[i].title ? null : results[i].title = 'empty';
+//   results[i].speaker.name ? null : results[i].speaker.name = 'empty';
+//   results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
+//   results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
+//   results[i].description ? null : results[i].description = 'empty';
+//   results[i].license ? null : results[i].license = 'empty';
+//   results[i].permalink ? null : results[i].permalink = 'empty';
+//   results[i].source ? null : results[i].source = 'empty';
+// }
+
+
 $('.about').click(function () {
   $('#about').modal();
 });
@@ -39,7 +77,6 @@ function soundmanager () {
 * Initialise audio players
 */
 function init_audio () {
-  soundManager.stopAll();
   soundManager.flashLoadTimeout = 0;
   soundManager.onerror = {};
   soundManager.reboot();
@@ -78,10 +115,25 @@ function search_and_render(append){
     success: function(response) {
       if(response) {
         var results = response.results;
-        // Ajax template and render
-        $.get('talk.html', function(template) {
-          $.tmpl(template, results).appendTo('.results');
-        });
+        // http://icanhazjs.com/
+        for (var i = 0; i < 10; i++) {
+
+
+    // TEMPORARY
+    results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
+    results[i].title ? null : results[i].title = 'empty';
+    results[i].speaker.name ? null : results[i].speaker.name = 'empty';
+    results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
+    results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
+    results[i].description ? null : results[i].description = 'empty';
+    results[i].license ? null : results[i].license = 'empty';
+    results[i].permalink ? null : results[i].permalink = 'empty';
+    results[i].source ? null : results[i].source = 'empty';
+
+
+
+          ich.talk_template(results[i]).appendTo('.results');
+        };
         loading = false;
         $('.metta_total').html(response.metta.total);
       }
@@ -93,7 +145,7 @@ function search_and_render(append){
     }
   });
   // Highlight search phrase
-  setTimeout(function function_name (argument) {
+  setTimeout(function() {
     $(".results, .metta_total").highlight(searched);
   }, 2000);
 }
@@ -115,6 +167,7 @@ $.fn.spin = function(opts) {
   });
   return this;
 };
+
 jQuery(document).ready(function() { 
   soundmanager();
   // Displays results on homepage
@@ -140,7 +193,7 @@ jQuery(document).ready(function() {
     // Clear the search form for next search
     $('.search-query').val(null);
     search_and_render(false);
-    $('.search_string').html('with ' + '"' + searched + '"');
+    $('.search_string').html('with ' + '"' + searched + '".');
   }); 
   // Focus cursor in search box on page load
   $('.search-query').focus();
