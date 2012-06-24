@@ -16,50 +16,6 @@
     <link rel="stylesheet" type="text/css" href="soundmanager/360-player/360player.css" />
     <link rel="stylesheet" type="text/css" href="soundmanager/360-player/360player-visualization.css" />
     <link rel="stylesheet" href="css/style.css">
-    <script id="talk_template" type="text/html">
-      <div class="row-fluid">
-        <div class="span2 speaker_image">
-          <img src={{ speaker.picture }} >
-        </div>
-        <div class="span8 talk_details">
-          <h2> {{ title }} </h2>
-          <div class="talk_details">
-            <h3 class="speaker"><em>by {{ speaker.name }}</em></h3>
-            <span>{{ date }}</span>
-            <span>{{ duration }}</span>        
-            <p class="description">{{ description }}</p>
-            <p>
-              <strong>
-                <a href={{ license }} target="_blank">License</a>
-                 | 
-                <a href={{ permalink }}>Download</a> 
-                 |
-                <a href={{ source }}>{{ source }}</a>
-                 | 
-                <a href="#">Back to top</a>
-              </strong>
-            </p>
-          </div>
-        </div>
-        <div class="span2 player">
-          <div class="ui360 ui360-vis">
-              <a href={{ permalink }}></a>
-          </div>
-        </div>
-      </div>
-    </script>
-    <script src="js/libs/jquery-1.7.2.min.js"></script>
-    <script src="js/libs/jquery.highlight.js"></script>
-    <!--[if IE]><script src="soundmanager/script/excanvas.js"></script><![endif]-->
-    <script src="soundmanager/360-player/script/berniecode-animator.js"></script>
-    <script src="soundmanager/script/soundmanager2.js"></script>
-    <script src="soundmanager/360-player/script/360player.js"></script>
-    <script src="js/libs/jquery.infinitescroll.min.js"></script>
-    <script src="js/libs/ICanHaz.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/libs/bootstrap-modal.js"></script>
-    <script src="js/libs/bootstrap-transition.js"></script>
-    <script src="js/libs/spin.min.js"></script>
     <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
@@ -111,6 +67,50 @@
         </div>
       </div>
     </div>
+    <script id="talk_template" type="text/html">
+      <div class="row-fluid">
+        <div class="span2 speaker_image">
+          <img src={{ speaker.picture }} >
+        </div>
+        <div class="span8 talk_details">
+          <h2> {{ title }} </h2>
+          <div class="talk_details">
+            <h3 class="speaker"><em>by {{ speaker.name }}</em></h3>
+            <span>{{ date }}</span>
+            <span>{{ duration }}</span>        
+            <p class="description">{{ description }}</p>
+            <p>
+              <strong>
+                <a href={{ license }} target="_blank">License</a>
+                 | 
+                <a href={{ permalink }}>Download</a> 
+                 |
+                <a href={{ source }}>{{ source }}</a>
+                 | 
+                <a href="#">Back to top</a>
+              </strong>
+            </p>
+          </div>
+        </div>
+        <div class="span2 player">
+          <div class="ui360 ui360-vis">
+              <a href={{ permalink }}></a>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script src="js/libs/jquery-1.7.2.min.js"></script>
+    <script src="js/libs/jquery.highlight.js"></script>
+    <!--[if IE]><script src="soundmanager/script/excanvas.js"></script><![endif]-->
+    <script src="soundmanager/360-player/script/berniecode-animator.js"></script>
+    <script src="soundmanager/script/soundmanager2.js"></script>
+    <script src="soundmanager/360-player/script/360player.js"></script>
+    <script src="js/libs/jquery.infinitescroll.min.js"></script>
+    <script src="js/libs/ICanHaz.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/libs/bootstrap-modal.js"></script>
+    <script src="js/libs/bootstrap-transition.js"></script>
+    <script src="js/libs/spin.min.js"></script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-31671486-5']);
