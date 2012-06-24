@@ -1,3 +1,7 @@
+$('.about').click(function () {
+  $('#about').modal();
+});
+
 // My first propper funtion I made all by myself!!
 function format_date (date) {
   var year = date[0] + date[1] + date[2] + date[3];
@@ -20,7 +24,7 @@ function format_date (date) {
   if (month == '10') month = 'October';
   if (month == '11') month = 'November';
   if (month == '12') month = 'December';
-  return day + ', ' + month + ', ' + year; 
+  return day + ' ' + month + ' ' + year; 
 }
 // Check for empties and format nicely.
 // function check_and_format (i) {
@@ -35,10 +39,6 @@ function format_date (date) {
 //   results[i].source ? null : results[i].source = 'empty';
 // }
 
-
-$('.about').click(function () {
-  $('#about').modal();
-});
 function soundmanager () {
   /**
   * Soundmanager stuff
