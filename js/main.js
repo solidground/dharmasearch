@@ -7,7 +7,7 @@ function format_date (date) {
   var year = date[0] + date[1] + date[2] + date[3];
   var month = date[5] + date[6];
   var day = date[8] + date[9];
-  if (day[0] == '0') day = day[1];
+  if (day[0] == 0) day = day[1];
   if (day == '01' || day == '21' || day == '31') day += 'st';
   else if (day == '02' || day == '22') day += 'nd';
   else if (day == '03' || day == '23') day += 'rd';
