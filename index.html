@@ -3,7 +3,6 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
 <!--[if gt IE 8]><!--> <html class="no-js gt-ie8" lang="en"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
@@ -11,7 +10,6 @@
     <title>Dharmasearch</title>
     <meta name="description" content="Dharmasearch is a user interface for Dharma-api, the source of all the dharma talks and teachers on the web.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- To work with IE 8 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <link rel="stylesheet" type="text/css" href="soundmanager/flashblock/flashblock.css" />
@@ -22,11 +20,11 @@
   </head>
   <body>
     <div class="container">
-
       <header>
         <h1 class="brand">Dharmasearch</h1>
-        <h1 class="email"><a href="mailto:hello@dharmasearch.com" target="_blank">hello@dharmasearch.com</a> | <a class="about" href="#about" >About</a> | <a href="https://twitter.com/intent/tweet?button_hashtag=dharmasearch" class="twitter-hashtag-button" data-related="busyanimal,twombh">Tweet #dharmasearch</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></h1>
+        <h1 class="email">
+          <a href="mailto:hello@dharmasearch.com" target="_blank">hello@dharmasearch.com</a> | <a class="about" href="#about" >About</a> | <a href="https://twitter.com/intent/tweet?button_hashtag=dharmasearch" class="twitter-hashtag-button" data-related="busyanimal,twombh">Tweet #dharmasearch</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </h1>
         <div class="search">
           <form class="search-form">
             <input class="search-query" placeholder="Search talks &amp; speakers" type="text" />
@@ -38,7 +36,8 @@
           <span class="search_string"></span>
         </div>      
       </header>
-
+      <div class="results"></div>
+      <div class="spin"></div> 
       <div class="modal hide fade" id="about">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">×</button>
@@ -67,17 +66,13 @@
           <a href="#" class="btn" data-dismiss="modal">Close</a>
         </div>
       </div>
-
-      <div class="results"></div>
-      <div class="spin"></div> 
-
     </div>
     <script src="js/libs/jquery-1.7.2.min.js"></script>
     <script src="js/libs/jquery.infinitescroll.min.js"></script>
     <script src="js/libs/jquery.highlight.js"></script>
     <script src="js/libs/spin.min.js"></script>
     <script src="js/libs/jquery.tmpl.min.js"></script>
-    <script src="js/libs/bootstrap.min.js"></script>
+    <!-- // <script src="js/libs/bootstrap.min.js"></script> -->
     <script src="js/libs/bootstrap-modal.js"></script>
     <script src="js/libs/bootstrap-transition.js"></script>
     <!--[if IE]><script src="soundmanager/script/excanvas.js"></script><![endif]-->
@@ -85,20 +80,15 @@
     <script src="soundmanager/script/soundmanager2.js"></script>
     <script src="soundmanager/360-player/script/360player.js"></script>
     <script src="js/main.js"></script>
-    
-    <script type="text/javascript">
-
+        <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-31671486-5']);
       _gaq.push(['_trackPageview']);
-
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-
     </script>
-
   </body>
 </html>
