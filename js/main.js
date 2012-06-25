@@ -26,18 +26,6 @@ function format_date (date) {
   if (month == '12') month = 'December';
   return day + ' ' + month + ' ' + year; 
 }
-// Check for empties and format nicely.
-// function check_and_format (i) {
-//   results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
-//   results[i].title ? null : results[i].title = 'empty';
-//   results[i].speaker.name ? null : results[i].speaker.name = 'empty';
-//   results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
-//   results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
-//   results[i].description ? null : results[i].description = 'empty';
-//   results[i].license ? null : results[i].license = 'empty';
-//   results[i].permalink ? null : results[i].permalink = 'empty';
-//   results[i].source ? null : results[i].source = 'empty';
-// }
 
 function soundmanager () {
   /**
@@ -117,21 +105,17 @@ function search_and_render(append){
         var results = response.results;
         // http://icanhazjs.com/
         for (var i = 0; i < 10; i++) {
-
-
-    // TEMPORARY
-    results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
-    results[i].title ? null : results[i].title = 'empty';
-    results[i].speaker.name ? null : results[i].speaker.name = 'empty';
-    results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
-    results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
-    results[i].description ? null : results[i].description = 'empty';
-    results[i].license ? null : results[i].license = 'empty';
-    results[i].permalink ? null : results[i].permalink = 'empty';
-    results[i].source ? null : results[i].source = 'empty';
-
-
-
+          // Check and format results
+          results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
+          results[i].title ? null : results[i].title = 'empty';
+          results[i].speaker.name ? null : results[i].speaker.name = 'empty';
+          results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
+          results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
+          results[i].description ? null : results[i].description = 'empty';
+          results[i].license ? null : results[i].license = 'empty';
+          results[i].permalink ? null : results[i].permalink = 'empty';
+          results[i].source ? null : results[i].source = 'empty';
+          // Propogate and append template
           ich.talk_template(results[i]).appendTo('.results');
         };
         loading = false;
