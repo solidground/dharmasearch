@@ -103,21 +103,23 @@ function search_and_render(append){
     success: function(response) {
       if(response) {
         var results = response.results;
-        // http://icanhazjs.com/
-        for (var i = 0; i < 10; i++) {
-          // Check and format results
-          results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
-          results[i].title ? null : results[i].title = 'empty';
-          results[i].speaker.name ? null : results[i].speaker.name = 'empty';
-          results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
-          results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
-          results[i].description ? null : results[i].description = 'empty';
-          results[i].license ? null : results[i].license = 'empty';
-          results[i].permalink ? null : results[i].permalink = 'empty';
-          results[i].source ? null : results[i].source = 'empty';
-          // Propogate and append template
-          ich.talk_template(results[i]).appendTo('.results');
-        };
+        if ( response.metta.total > 0 ) {
+          for (var i = 0; i < 10; i++) {
+            // Check and format results
+            results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
+            results[i].title ? null : results[i].title = 'empty';
+            results[i].speaker.name ? null : results[i].speaker.name = 'empty';
+            results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
+            results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
+            results[i].description ? null : results[i].description = 'empty';
+            results[i].license ? null : results[i].license = 'empty';
+            results[i].permalink ? null : results[i].permalink = 'empty';
+            results[i].source ? null : results[i].source = 'empty';
+            // http://icanhazjs.com/
+            // Propogate and append template
+            ich.talk_template(results[i]).appendTo('.results');
+            };
+        }
         loading = false;
         $('.metta_total').html(response.metta.total);
       }
