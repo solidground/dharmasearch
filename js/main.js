@@ -4,10 +4,10 @@ $('.about').click(function () {
 
 // My first propper funtion I made all by myself!!
 function format_date (date) {
-  var year = date[0] + date[1] + date[2] + date[3];
-  var month = date[5] + date[6];
-  var day = date[8] + date[9];
-  if (day[0] == 0) day = day[1];
+  var year = date.substring(0,4);
+  var month = date.substring(5,7);
+  var day = date.substring(8,10);
+  if (day.substring(0) == 0) day = day.substring(1);
   if (day == '01' || day == '21' || day == '31') day += 'st';
   else if (day == '02' || day == '22') day += 'nd';
   else if (day == '03' || day == '23') day += 'rd';
@@ -106,15 +106,15 @@ function search_and_render(append){
         if ( response.metta.total > 0 ) {
           for (var i = 0; i < 10; i++) {
             // Check and format results
-            results[i].speaker.picture ? null : results[i].speaker.picture = 'img/nopic.png';
-            results[i].title ? null : results[i].title = 'empty';
-            results[i].speaker.name ? null : results[i].speaker.name = 'empty';
-            results[i].date ? results[i].date = format_date(results[i].date) : results[i].date = 'empty';
-            results[i].duration ? results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' : results[i].duration = 'empty';
-            results[i].description ? null : results[i].description = 'empty';
-            results[i].license ? null : results[i].license = 'empty';
-            results[i].permalink ? null : results[i].permalink = 'empty';
-            results[i].source ? null : results[i].source = 'empty';
+            results[i].speaker.picture = results[i].speaker.picture || 'img/nopic.png';
+            results[i].title = results[i].title || '';
+            results[i].speaker.name = results[i].speaker.name || '';
+            results[i].date = format_date(results[i].date) || '';
+            results[i].duration = '(' + parseInt(results[i].duration/60/60) + ' hours ' + parseInt(results[i].duration/60)%60 + ' minutes)' || '';
+            results[i].description = results[i].description || '';
+            results[i].license = results[i].license || '';
+            results[i].permalink = results[i].permalink || '';
+            results[i].source = results[i].source || '';
             // http://icanhazjs.com/
             // Propogate and append template
             ich.talk_template(results[i]).appendTo('.results');
