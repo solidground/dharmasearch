@@ -122,7 +122,9 @@ function search_and_render(append){
         }
         loading = false;
         $('.metta_total').html(response.metta.total);
-      }
+      } else {
+          $('.results').html('error');
+        }
     },
     complete: function(){
       init_audio();
