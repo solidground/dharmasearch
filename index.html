@@ -23,9 +23,14 @@
       <header>
         <h1 class="brand hidden-phone">Dharmasearch</h1>
         <h1 class="brand visible-phone">Dharmasearch</h1>
-        <h1 class="contact">
-           <a class="about hidden-phone" href="#about" >About</a>
-           <a class="about visible-phone" href="about.html" >About</a>
+        <h1 class="about">
+           <a class="about" href="#about" >About</a>
+        </h1>
+        <h1 class="hidden-phone twitter">
+          Follow <a href="http://twitter.com/dharmasearch" target="_blank">@dharmasearch</a> for tweets about new talks!
+        </h1>
+        <h1 class="visible-phone twitter">
+          <a href="http://twitter.com/dharmasearch" target="_blank">@dharmasearch</a>
         </h1>
         <div class="search">
           <form class="search-form">
@@ -74,7 +79,7 @@
         </div>
       </div>
     </div>
-    <script id="talk_template" type="text/html">
+    <script src="talk.html" id="talk_template" type="text/html">
       <div class="row-fluid">
         <div class="span2 speaker_image">
           <img src={{ speaker.picture }} >

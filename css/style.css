@@ -29,16 +29,15 @@ body {
   letter-spacing: 0.3em;
 }
 
+ /* Landscape phones and down */
+@media (max-width: 480px) {
+  h1.brand.visible-phone {
+    font-size: 2em;
+  }
+}
+
 ul {
   list-style: none;
-}
-
-h1.visible-phone {
-  font-size: 2em;
-}
-
-h1.hidden-phone {
-  font-size: 4em;
 }
 
 /* Large desktop */
@@ -94,7 +93,7 @@ li {
   line-height: normal;
 }
 
-.contact {
+.about, .twitter {
   text-align: center;
   font-size: 17px;
 }
