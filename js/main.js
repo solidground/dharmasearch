@@ -1,3 +1,19 @@
+// Parse url for name=value arguments
+function urlArgs() {
+	var args = {};
+	var query = location.search.substring(1);
+	var pairs = query.split("&");
+	for(var i = 0; i < pairs.length; i++) {
+		var pos = pairs[i].indexOf('=');
+		if (pos == -1) continue;
+		var name = pairs[i].substring(0,pos);
+		var value = pairs[i].substring(pos+1);
+		value = decodeURIComponent(value);
+		args[name] = value;
+	}
+	return args;
+}
+
 $('.about').click(function () {
   $('#about').modal();
 });
@@ -93,7 +109,11 @@ function search_and_render(append){
     $("body").unhighlight();
   }
   loading = true;
-  var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
+  if ( jQuery.isEmptyObject(urlArgs()) ) {
+	  var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
+  } else {
+  	  var uri = api_uri('talk/' + urlArgs().id);
+  }
   $.ajax({
     url: uri,
     dataType: 'jsonp',
@@ -103,8 +123,8 @@ function search_and_render(append){
     success: function(response) {
       if(response) {
         var results = response.results;
-        if ( response.metta.total > 0 ) {
-          for (var i = 0; i < 10; i++) {
+        if ( results ) {
+          for (var i = 0; i < results.length; i++) {
             // Check and format results
             results[i].speaker.picture = results[i].speaker.picture || 'img/nopic.png';
             results[i].title = results[i].title || '';
@@ -121,7 +141,9 @@ function search_and_render(append){
             };
         }
         loading = false;
-        $('.metta_total').html(response.metta.total);
+        if ( !!response.metta ) {
+	        $('.metta_total').html(response.metta.total);
+	    }
       } else {
           $('.results').html('error');
         }
@@ -160,7 +182,7 @@ jQuery(document).ready(function() {
   soundmanager();
   // Displays results on homepage
   searched = $('.search-query').val();
-  search_and_render(); 
+  search_and_render();
   /**
   * Infinite scrolling
   */
