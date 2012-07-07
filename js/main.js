@@ -110,13 +110,11 @@ function search_and_render(append){
   }
   loading = true;
 
-  if ( !jQuery.isEmptyObject(urlArgs()) & searched == '' ) {
+  if ( !jQuery.isEmptyObject(urlArgs()) & submit == false ) {
 	  var uri = api_uri('talk/' + urlArgs().id);
   } else {
     var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
   }
-  console.log(uri);
-  console.log(searched);
   $.ajax({
     url: uri,
     dataType: 'jsonp',
@@ -181,9 +179,10 @@ $.fn.spin = function(opts) {
   return this;
 };
 
-jQuery(document).ready(function() { 
+jQuery(document).ready(function() {
   soundmanager();
   // Displays results on homepage
+  submit = false; 
   searched = $('.search-query').val();
   search_and_render();
   /**
@@ -202,6 +201,7 @@ jQuery(document).ready(function() {
   */
   $('.search-form').submit(function(e) {
     e.preventDefault();
+    submit = true;
     searched = $('.search-query').val();
     // Clear the search form for next search
     $('.search-query').val(null);
@@ -210,4 +210,5 @@ jQuery(document).ready(function() {
   }); 
   // Focus cursor in search box on page load
   $('.search-query').focus();
+
 });
