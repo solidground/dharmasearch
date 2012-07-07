@@ -109,11 +109,13 @@ function search_and_render(append){
     $("body").unhighlight();
   }
   loading = true;
+
   if ( jQuery.isEmptyObject(urlArgs() || searched != '') ) {
 	  var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
   } else {
   	  var uri = api_uri('talk/' + urlArgs().id);
   }
+  console.log(uri);
   $.ajax({
     url: uri,
     dataType: 'jsonp',
