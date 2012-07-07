@@ -116,6 +116,7 @@ function search_and_render(append){
   	  var uri = api_uri('talk/' + urlArgs().id);
   }
   console.log(uri);
+  console.log(searched);
   $.ajax({
     url: uri,
     dataType: 'jsonp',
