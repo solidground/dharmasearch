@@ -110,10 +110,10 @@ function search_and_render(append){
   }
   loading = true;
 
-  if ( jQuery.isEmptyObject(urlArgs() || searched) ) {
-	  var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
+  if ( !jQuery.isEmptyObject(urlArgs() || searched == '') ) {
+	  var uri = api_uri('talk/' + urlArgs().id);
   } else {
-  	  var uri = api_uri('talk/' + urlArgs().id);
+    var uri = api_uri('talks') + '&rpp=10&search=' + searched + '&page=' + page;
   }
   console.log(uri);
   console.log(searched);
