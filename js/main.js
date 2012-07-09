@@ -20,27 +20,29 @@ $('.about').click(function () {
 
 // My first propper funtion I made all by myself!!
 function format_date (date) {
-  var year = date.substring(0,4);
-  var month = date.substring(5,7);
-  var day = date.substring(8,10);
-  if (day.substring(0) == 0) day = day.substring(1);
-  if (day == '01' || day == '21' || day == '31') day += 'st';
-  else if (day == '02' || day == '22') day += 'nd';
-  else if (day == '03' || day == '23') day += 'rd';
-  else day += 'th';
-  if (month == '01') month = 'January';
-  if (month == '02') month = 'February';
-  if (month == '03') month = 'March';
-  if (month == '04') month = 'April';
-  if (month == '05') month = 'May';
-  if (month == '06') month = 'June';
-  if (month == '07') month = 'July';
-  if (month == '08') month = 'August';
-  if (month == '09') month = 'September';
-  if (month == '10') month = 'October';
-  if (month == '11') month = 'November';
-  if (month == '12') month = 'December';
-  return day + ' ' + month + ' ' + year; 
+  if (!!date) {
+    var year = date.substring(0,4);
+    var month = date.substring(5,7);
+    var day = date.substring(8,10);
+    if (day.substring(0) === 0) day = day.substring(1);
+    if (day == '01' || day == '21' || day == '31') day += 'st';
+    else if (day == '02' || day == '22') day += 'nd';
+    else if (day == '03' || day == '23') day += 'rd';
+    else day += 'th';
+    if (month == '01') month = 'January';
+    if (month == '02') month = 'February';
+    if (month == '03') month = 'March';
+    if (month == '04') month = 'April';
+    if (month == '05') month = 'May';
+    if (month == '06') month = 'June';
+    if (month == '07') month = 'July';
+    if (month == '08') month = 'August';
+    if (month == '09') month = 'September';
+    if (month == '10') month = 'October';
+    if (month == '11') month = 'November';
+    if (month == '12') month = 'December';
+    return day + ' ' + month + ' ' + year;
+  }
 }
 
 function soundmanager () {
